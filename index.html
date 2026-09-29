@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mirha's WonderLab ✨ Learn • Play • Create</title>
+<meta name="description" content="Mirha's WonderLab — a joyful learning playground with English, Urdu, Math and Art games for curious kids.">
+<meta name="theme-color" content="#6d4dff">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:title" content="Mirha's WonderLab ✨">
+<meta property="og:description" content="Learn • Play • Create • Shine — English, Urdu, Math and Art games.">
+<meta property="og:image" content="assets/mirha-story.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&family=Noto+Nastaliq+Urdu:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#worlds">Skip to learning worlds</a>
+<div class="float" aria-hidden="true" style="left:3%;top:24%">⭐</div>
+<div class="float" aria-hidden="true" style="right:5%;top:40%;animation-delay:-3s">🌈</div>
+<div class="float" aria-hidden="true" style="left:6%;bottom:10%;animation-delay:-6s">🎨</div>
+<div class="float" aria-hidden="true" style="right:10%;bottom:20%;animation-delay:-8s">🇵🇰</div>
+
+<header>
+  <div class="brand">
+    <img class="avatar" src="assets/mirha-photo.jpeg" alt="Mirha smiling" width="62" height="62">
+    <div><h1><span data-name>Mirha</span>'s WonderLab ✨</h1><div class="sub">Learn • Play • Create • Shine</div></div>
+  </div>
+  <div class="stats">
+    <div class="pill" id="pillStars" title="Stars collected">⭐ <span class="n" id="stars">0</span><span class="sr-only"> stars</span></div>
+    <div class="pill" title="Days in a row">🔥 <span class="n" id="streak">1</span> <span id="streakWord">day</span></div>
+    <div class="pill" id="pillLevel" title="Your level">🏆 Lv <span class="n" id="level">1</span></div>
+    <button class="icon-btn" id="soundBtn" aria-pressed="true" aria-label="Sound on" title="Sound on/off">🔊</button>
+    <button class="icon-btn" id="parentBtn" aria-label="Grown-ups corner" title="Grown-ups corner">⚙️</button>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <section class="hero" aria-labelledby="heroTitle">
+    <div>
+      <span class="eyebrow" id="greeting">Good morning ☀️</span>
+      <h2 id="heroTitle">Welcome, Super Learner <span data-name>Mirha</span>! 🚀</h2>
+      <p>Explore four magical studios, finish challenges, collect stars, unlock badges and earn your WonderLab certificate.</p>
+      <div class="row">
+        <button class="btn-primary" id="startBtn">Start today's adventure →</button>
+        <button class="btn-dark" id="welcomeBtn">🔊 Hear welcome</button>
+      </div>
+    </div>
+    <figure><img src="assets/mirha-story.png" alt="Illustration of Mirha painting at her desk with a kitten and a robot friend, Kuala Lumpur towers outside" width="557" height="314"></figure>
+  </section>
+
+  <section class="goal" aria-labelledby="goalTitle">
+    <div class="ring" id="goalRing" role="img" aria-label="Daily goal progress"><span id="goalNum">0/10</span></div>
+    <div>
+      <h3 id="goalTitle">🌟 Today's Super Mission: earn 10 stars</h3>
+      <div class="sub" id="goalSub">Try activities in different worlds to fill the ring!</div>
+      <div class="lvlbar" aria-hidden="true"><i id="lvlFill"></i></div>
+      <div class="sub" id="lvlText">10 stars to Level 2</div>
+    </div>
+    <button class="btn-purple" id="certBtn">🎓 My Certificate</button>
+  </section>
+
+  <h2 class="section-title" id="worlds">Choose a learning world <small>Tap a card to begin</small></h2>
+  <section class="worlds" aria-label="Learning worlds">
+    <button class="world" data-world="english" style="--c:var(--green)" aria-expanded="false" aria-controls="english">
+      <span class="emoji" aria-hidden="true">📚🦋</span><span class="wtitle">English Garden</span><small>Words • spelling • sentences</small>
+      <span class="meta"><span id="m-english">0 stars</span><span id="t-english">Start!</span></span>
+      <span class="progress" aria-hidden="true"><span class="bar" id="p-english" style="display:block"></span></span>
+    </button>
+    <button class="world" data-world="urdu" style="--c:var(--blue)" aria-expanded="false" aria-controls="urdu">
+      <span class="emoji" aria-hidden="true">🌙🕌</span><span class="wtitle">Urdu Wonderland</span><small class="urdu" lang="ur">الفاظ • حروف • آواز</small>
+      <span class="meta"><span id="m-urdu">0 stars</span><span id="t-urdu">Start!</span></span>
+      <span class="progress" aria-hidden="true"><span class="bar" id="p-urdu" style="display:block"></span></span>
+    </button>
+    <button class="world" data-world="math" style="--c:var(--gold)" aria-expanded="false" aria-controls="math">
+      <span class="emoji" aria-hidden="true">🚀🔢</span><span class="wtitle">Math Galaxy</span><small>Add • subtract • multiply • divide</small>
+      <span class="meta"><span id="m-math">0 stars</span><span id="t-math">Start!</span></span>
+      <span class="progress" aria-hidden="true"><span class="bar" id="p-math" style="display:block"></span></span>
+    </button>
+    <button class="world" data-world="art" style="--c:var(--pink)" aria-expanded="false" aria-controls="art">
+      <span class="emoji" aria-hidden="true">🎨🦄</span><span class="wtitle">Art Planet</span><small>Paint • stamp • imagine</small>
+      <span class="meta"><span id="m-art">0 stars</span><span id="t-art">Start!</span></span>
+      <span class="progress" aria-hidden="true"><span class="bar" id="p-art" style="display:block"></span></span>
+    </button>
+  </section>
+
+  <!-- ENGLISH -->
+  <section id="english" class="panel" aria-labelledby="englishTitle" tabindex="-1">
+    <div class="panelHead"><h2 id="englishTitle">📚 English Garden</h2><button class="closeBtn">✕ Close</button></div>
+    <div class="gamegrid">
+      <div class="game">
+        <h4>🎧 Listen & choose <span class="combo" id="engCombo"></span></h4>
+        <div class="bigword" id="engEmoji" aria-live="polite">🍎</div>
+        <div class="row"><button id="engListen">🔊 Listen</button><button class="btn-ghost" id="engSkip">Skip ↻</button></div>
+        <div class="choices" id="engChoices"></div>
+        <div class="feedback" id="engFeed" role="status"></div>
+      </div>
+      <div class="game">
+        <h4>✍️ Spelling bee <span class="chip" id="spellCount">Word 1</span></h4>
+        <p>Listen, then spell the word you hear.</p>
+        <div class="bigword sm" id="spellEmoji" aria-hidden="true">❓</div>
+        <div class="hintline" id="spellHint" aria-live="polite"></div>
+        <form id="spellForm" class="row" autocomplete="off">
+          <label class="sr-only" for="spellInput">Type the word</label>
+          <input id="spellInput" class="input" placeholder="Type the word…" autocapitalize="off" spellcheck="false" style="flex:1;min-width:160px">
+          <button class="btn-primary" type="submit">Check ✨</button>
+        </form>
+        <div class="row"><button type="button" id="spellListen">🔊 Hear word</button><button type="button" class="btn-ghost" id="spellSlow">🐢 Slowly</button><button type="button" class="btn-ghost" id="spellHintBtn">💡 Hint</button></div>
+        <div class="feedback" id="spellFeed" role="status"></div>
+      </div>
+      <div class="game" style="grid-column:1/-1">
+        <h4>🧩 Sentence builder <span class="chip">Tap words in order</span></h4>
+        <p id="sentPrompt">Build the sentence that matches the picture.</p>
+        <div class="bigword sm" id="sentEmoji" aria-hidden="true">🐱☀️</div>
+        <div class="slots" id="sentSlots" aria-label="Your sentence" aria-live="polite"></div>
+        <div class="row" id="sentTiles"></div>
+        <div class="row"><button class="btn-primary" id="sentCheck">Check ✨</button><button class="btn-ghost" id="sentUndo">↩ Undo</button><button class="btn-ghost" id="sentListen">🔊 Hear it</button></div>
+        <div class="feedback" id="sentFeed" role="status"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- URDU -->
+  <section id="urdu" class="panel" aria-labelledby="urduTitle" tabindex="-1">
+    <div class="panelHead"><h2 id="urduTitle">🌙 Urdu Wonderland</h2><button class="closeBtn">✕ Close</button></div>
+    <div class="gamegrid">
+      <div class="game" dir="rtl" lang="ur">
+        <h4><span class="urdu">لفظ پہچانو</span> <span class="combo" id="urduCombo" dir="ltr"></span></h4>
+        <p dir="ltr" lang="en">Pick the Urdu word for the picture.</p>
+        <div class="bigword" id="urduEmoji">📖</div>
+        <div class="choices" id="urduChoices"></div>
+        <div class="learned" id="urduLearned" dir="ltr" lang="en"></div>
+        <div class="feedback" id="urduFeed" role="status"></div>
+      </div>
+      <div class="game" dir="rtl" lang="ur">
+        <h4><span class="urdu">حروف کی مشق</span></h4>
+        <p class="urdu">اس حرف سے شروع ہونے والا لفظ منتخب کریں۔</p>
+        <div class="bigword urdu" id="urduLetter">ا</div>
+        <div class="row" dir="ltr"><button id="letterListen">🔊 Hear letter</button></div>
+        <div class="choices" id="letterChoices"></div>
+        <div class="feedback" id="letterFeed" role="status"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATH -->
+  <section id="math" class="panel" aria-labelledby="mathTitle" tabindex="-1">
+    <div class="panelHead"><h2 id="mathTitle">🚀 Math Galaxy</h2>
+      <div class="row"><div class="levels" role="group" aria-label="Difficulty" id="mathLevels">
+        <button data-lv="1" aria-pressed="true">🌱 Easy</button><button data-lv="2" aria-pressed="false">🌟 Medium</button><button data-lv="3" aria-pressed="false">🔥 Hard</button>
+      </div><button class="closeBtn">✕ Close</button></div>
+    </div>
+    <div class="gamegrid">
+      <div class="game">
+        <h4>🪐 Space Mission <span class="combo" id="mathCombo"></span></h4>
+        <div class="bigword" id="mathQ" aria-live="polite">5 + 3 = ?</div>
+        <div class="choices" id="mathChoices"></div>
+        <div class="feedback" id="mathFeed" role="status"></div>
+      </div>
+      <div class="game speedStage">
+        <h4>⏱️ 60-second rocket race <span class="chip">Best: <span id="speedBest">0</span></span></h4>
+        <div class="timerbar" aria-hidden="true"><i id="speedBar"></i></div>
+        <div class="bigword sm"><span id="timer">60</span>s · <span id="speedScore">0</span> ⭐</div>
+        <div id="speedArea" hidden>
+          <div class="bigword" id="speedQ" aria-live="polite"></div>
+          <div class="choices" id="speedChoices"></div>
+        </div>
+        <p id="speedIntro">Answer as many as you can before the rocket lands! Each right answer = 1 star.</p>
+        <button class="btn-primary" id="speedStart">🚀 Start race</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ART -->
+  <section id="art" class="panel" aria-labelledby="artTitle" tabindex="-1">
+    <div class="panelHead"><h2 id="artTitle">🎨 Art Planet</h2><button class="closeBtn">✕ Close</button></div>
+    <div class="gamegrid artgrid">
+      <div class="game">
+        <h4>🖌️ Magic Canvas</h4>
+        <div class="toolbar" id="palette" role="group" aria-label="Colors"></div>
+        <div class="toolbar">
+          <button class="tool" id="toolBrush" aria-pressed="true">🖌️ Brush</button>
+          <button class="tool" id="toolEraser" aria-pressed="false">🩹 Eraser</button>
+          <button class="tool" id="toolFill" aria-pressed="false">🪣 Fill</button>
+          <label class="brush">Size <input type="range" id="brush" min="2" max="40" value="10" aria-label="Brush size"><span class="brush-dot" aria-hidden="true"><i id="brushDot"></i></span></label>
+        </div>
+        <div class="stamps" role="group" aria-label="Stickers" id="stamps"></div>
+        <div class="canvasWrap"><canvas id="paint" width="1200" height="675" aria-label="Drawing canvas"></canvas></div>
+        <div class="row">
+          <button id="undoBtn" disabled>↩ Undo</button>
+          <button id="clearBtn">🧽 Clear</button>
+          <button class="btn-primary" id="galleryBtn">🖼️ Add to gallery</button>
+          <button id="saveBtn">💾 Download</button>
+        </div>
+      </div>
+      <div class="game">
+        <h4>💡 Creative mission</h4>
+        <div class="bigword sm" id="artEmoji">🌈🏠🌳</div>
+        <p id="artPrompt">Draw a happy place using at least three colors.</p>
+        <div class="chip" id="artColors" style="align-self:flex-start">Colors used: 0/3</div>
+        <button class="btn-purple" id="finishArt">I finished my masterpiece! ⭐</button>
+        <button class="btn-ghost" id="newPrompt">🎲 New idea</button>
+        <div class="feedback" id="artFeed" role="status"></div>
+      </div>
+    </div>
+    <h3 class="section-title" style="font-size:22px">🖼️ My Gallery</h3>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <div class="mission" style="margin-top:34px">
+    <div><b>🇵🇰 Dil Dil Pakistan corner</b><div class="sub">Did you know? <span id="funFact">Pakistan's national flower is the jasmine (chambeli).</span></div></div>
+    <button id="factBtn">✨ Another fact</button>
+  </div>
+
+  <h2 class="section-title">🏅 Achievement shelf <small id="badgeCount">0 unlocked</small></h2>
+  <div class="badgeShelf" id="badgeShelf"></div>
+</main>
+
+<footer>Made with 💜 for <span data-name>Mirha</span> • Progress is saved on this device</footer>
+
+<button class="mascot" id="mascotBtn" aria-label="Ask Mimi the robot for a tip"><span class="bot" aria-hidden="true">🤖</span><span class="label">Mimi: Need help?</span></button>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modalCard"><div id="modalContent"></div><div class="modalActions" id="modalActions"></div></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
